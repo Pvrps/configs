@@ -4,10 +4,41 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./hyprland.nix
+      ./nvidia.nix
+      ./gaming.nix
     ];
 
-  boot.loader.systemd-boot.enable = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
+
+  nix = {
+    package = pkgs.nix;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 14d";
+    };
+
+    settings = {
+      auto-optimise-store = true;
+    };
+  };
+
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub = {
+    enable = true;
+    devices = [ "nodev" ];
+    efiSupport = true;
+  };
+  boot.loader.timeout = 3;
+
+  boot.kernelParams = [ "quiet" ];
 
   boot.initrd.postDeviceCommands = lib.mkAfter ''
     mkdir -p /mnt
@@ -39,11 +70,12 @@
 
   time.timeZone = "Canada/Eastern";
 
+  environment.etc."current-nixos".source = ./.;
+
   environment.systemPackages = with pkgs; [
     vim
     nano
-    git
-    wget
+    wget   
   ];
 
   fileSystems."/persist".neededForBoot = true;
@@ -71,6 +103,9 @@
       "purps" = import ./home.nix;
     };
   };
+
+  programs.hyprland.enable = true;
+  programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
 
   system.stateVersion = "24.11";
 }

@@ -17,18 +17,21 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = {nixpkgs, ...} @ inputs:
   {
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+      system = "x86_65-linux";
       specialArgs = {inherit inputs;};
       modules = [
         inputs.disko.nixosModules.default
         (import ./disko.nix { device = "/dev/nvme0n1"; })
 
         ./configuration.nix
-              
+
         inputs.home-manager.nixosModules.default
         inputs.impermanence.nixosModules.impermanence
       ];
