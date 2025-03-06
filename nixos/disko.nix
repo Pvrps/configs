@@ -1,5 +1,6 @@
+# sudo nix run github:nix-community/disko -- --mode disko disko.nix
 {
-  device ? throw "Set this to your disk device, e.g. /dev/sda",
+  device ? "/dev/nvme0n1",
   ...
 }: {
   disko.devices = {
@@ -25,32 +26,24 @@
             };
           };
           root = {
-            name = "encrypted";
             size = "100%";
             content = {
-              type = "luks";
-              name = "crypted";
-              settings = {
-                allowDiscards = true;
-              };
-              content = {
-                type = "btrfs";
-                extraArgs = ["-f"];
-                subvolumes = {
-                  "/root" = {
-                    mountpoint = "/";
-                    mountOptions = ["compress=zstd" "noatime"]; 
-                  };
-                  "/nix" = {
-                    mountpoint = "/nix";
-                    mountOptions = ["compress=zstd" "noatime"];
-                  };
-                  "/persist" = {
-                    mountpoint = "/persist";
-                    mountOptions = ["compress=zstd" "noatime"];
-                  };
-                  "/root-blank" = {};
+              type = "btrfs";
+              extraArgs = ["-f"];
+              subvolumes = {
+                "@root" = {
+                  mountpoint = "/";
+                  mountOptions = ["compress=zstd" "noatime"]; 
                 };
+                "@nix" = {
+                  mountpoint = "/nix";
+                  mountOptions = ["compress=zstd" "noatime"];
+                };
+                "@persist" = {
+                  mountpoint = "/persist";
+                  mountOptions = ["compress=zstd" "noatime"];
+                };
+                "@root-blank" = {};
               };
             };
           };

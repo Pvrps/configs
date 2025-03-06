@@ -1,31 +1,36 @@
 { config, lib, pkgs, ... }:
 
 {
-  hardware.graphics.enable = true;
-  hardware.graphics.enable32Bit = true;
-
-  boot.kernelModules = [ "nvidia" ];
-  boot.extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
-
-  hardware.nvidia = {
-    package = config.boot.kernelPackages.nvidia_x11;
-
-    nvidiaSettings = true;
-    
-    modesetting.enable = true;
-
-    open = true;
-
-    forceFullCompositionPipeline = true;
-
-    powerManagement.enable = true;
+  boot = {
+    kernelModules = [ "nvidia" ];
+    externalModulePackages = [ config.boot.kernelPackages.nvidiaPackages.stable ];
   };
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware = {
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
 
-  services.xserver.screenSection = ''
-    Option "metamodes" "nvidia-auto-select +0+0 {ForceFullCompositionPipelie=On}"
-  '';
+    nvidia = {
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      nvidiaSettings = true;
+      modesetting.enable = true;
+      open = true;
+      forceFullCompositionPipeline = true;
+      powerManagement.enable = false;
+      powerManagement.finegrained = false;
+    };
+  };
+
+  services = {
+    xserver = {
+      videoDrivers = [ "nvidia" ];
+      screenSection = ''
+        Option "medamodes" "nvidia-auto-select +0+0 {ForceFullCompositionPipeline=On}"
+      '';
+    };
+  };
 
   environment.variables = {
     LIBVA_DRIVER_NAME = "nvidia";

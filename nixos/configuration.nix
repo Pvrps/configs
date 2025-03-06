@@ -9,10 +9,6 @@
       ./gaming.nix
     ];
 
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
-
   nix = {
     package = pkgs.nix;
     extraOptions = ''
@@ -44,12 +40,9 @@
     mkdir -p /mnt
     mount -o subvol=/ /dev/mapper/crypted /mnt
     btrfs subvolume list -o /mnt/root | cut -f9 -d' ' | while read subvolume; do
-      echo "Deleting /$subvolume subvolume"
       btrfs subvolume delete "/mnt/$subvolume"
     done &&
-    echo "Deleting /root subvolume" &&
     btrfs subvolume delete /mnt/root &&
-    echo "Restoring blank /root subvolume" &&
     btrfs subvolume snapshot /mnt/root-blank /mnt/root &&
     umount /mnt
   '';
@@ -69,8 +62,6 @@
   networking.networkmanager.enable = true;
 
   time.timeZone = "Canada/Eastern";
-
-  environment.etc."current-nixos".source = ./.;
 
   environment.systemPackages = with pkgs; [
     vim
@@ -97,15 +88,6 @@
   };
 
   programs.fuse.userAllowOther = true;
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      "purps" = import ./home.nix;
-    };
-  };
-
-  programs.hyprland.enable = true;
-  programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
 
   system.stateVersion = "24.11";
 }

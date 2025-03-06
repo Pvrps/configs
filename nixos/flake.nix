@@ -24,16 +24,22 @@
   outputs = {nixpkgs, ...} @ inputs:
   {
     nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-      system = "x86_65-linux";
+      system = "x86_64-linux";
       specialArgs = {inherit inputs;};
       modules = [
-        inputs.disko.nixosModules.default
+        disko.nixosModules.default
         (import ./disko.nix { device = "/dev/nvme0n1"; })
 
         ./configuration.nix
 
-        inputs.home-manager.nixosModules.default
-        inputs.impermanence.nixosModules.impermanence
+        home-manager.nixosModules.home-manager {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users."purps" = import ./home.nix;
+          home-manager.extraSpecialArgs = {inherot inputs;};        
+        };
+
+        impermanence.nixosModules.impermanence
       ];
     };
   };

@@ -29,14 +29,6 @@
     FLAKE = "/etc/nixos";
   };
 
-  home.shellAliases = {
-    la = "ls -la";
-
-    nixrebuild = "sudo nixos-rebuild --upgrade switch --flake path:/etc/nixos#default --impure";
-    nixrebuild-boot = "sudo nixos-rebuild boot --flake path:/etc/nixos#default --impure";
-    nixflake-update = "sudo nix flake update --flake path:/etc/nixos#default";
-  };
-
   programs.fish = {
     enable = true;
     shellInit = ''
