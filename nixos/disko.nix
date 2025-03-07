@@ -31,19 +31,19 @@
               type = "btrfs";
               extraArgs = ["-f"];
               subvolumes = {
-                "@root" = {
+                "/root" = {
                   mountpoint = "/";
                   mountOptions = ["compress=zstd" "noatime"]; 
                 };
-                "@nix" = {
+                "/nix" = {
                   mountpoint = "/nix";
                   mountOptions = ["compress=zstd" "noatime"];
                 };
-                "@persist" = {
+                "/persist" = {
                   mountpoint = "/persist";
                   mountOptions = ["compress=zstd" "noatime"];
                 };
-                "@root-blank" = {};
+                "/root-blank" = {};
               };
             };
           };

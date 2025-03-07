@@ -4,10 +4,11 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./hyprland.nix
       ./nvidia.nix
       ./gaming.nix
     ];
+
+  nixpkgs.config.allowUnfree = true;
 
   nix = {
     package = pkgs.nix;
@@ -38,7 +39,7 @@
 
   boot.initrd.postDeviceCommands = lib.mkAfter ''
     mkdir -p /mnt
-    mount -o subvol=/ /dev/mapper/crypted /mnt
+    mount -o subvol=/ /dev/nvme0n1p3 /mnt
     btrfs subvolume list -o /mnt/root | cut -f9 -d' ' | while read subvolume; do
       btrfs subvolume delete "/mnt/$subvolume"
     done &&

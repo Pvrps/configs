@@ -3,7 +3,7 @@
 {
   boot = {
     kernelModules = [ "nvidia" ];
-    externalModulePackages = [ config.boot.kernelPackages.nvidiaPackages.stable ];
+    extraModulePackages = [ config.boot.kernelPackages.nvidiaPackages.stable ];
   };
 
   hardware = {
