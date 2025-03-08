@@ -9,7 +9,7 @@ in {
     {
       shell = pkgs.fish;
       isNormalUser = true;
-      extraGroups = ["wheel" "audio" "video" "dialout" "plugdev" "libvirtd" "networkmanager" "docker" "wireshark"];
+      extraGroups = ["wheel" "audio" "video" "plugdev" "libvirtd" "networkmanager"];
     }
   ];
 }
