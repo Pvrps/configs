@@ -19,7 +19,7 @@ in {
   config = mkIf cfg.enable {
     home = {
       packages = [pkgs.godot_4];
-      persistence."/persist/home/bddvlpr".directories = [
+      persistence."/persist/home/purps".directories = [
         ".config/godot"
       ];
     };

@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   home = {
     packages = [pkgs.osu-lazer];
-    persistence."/persist/home/bddvlpr".directories = [".local/share/osu"];
+    persistence."/persist/home/purps".directories = [".local/share/osu"];
   };
 }

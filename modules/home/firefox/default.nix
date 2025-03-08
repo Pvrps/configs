@@ -114,18 +114,7 @@ in {
                 {
                   name = "Services";
                   bookmarks = [
-                    {
-                      name = "Assistant";
-                      url = "https://assistant.bddvlpr.com/";
-                    }
-                    {
-                      name = "Cloud";
-                      url = "https://cloud.bddvlpr.com/";
-                    }
-                    {
-                      name = "Monitor";
-                      url = "https://monitoring.bddvlpr.com/";
-                    }
+
                   ];
                 }
                 {
@@ -134,82 +123,24 @@ in {
                     {
                       name = "Web";
                       bookmarks = [
-                        {
-                          name = "TailwindCSS docs";
-                          url = "https://tailwindcss.com/docs/";
-                        }
-                        {
-                          name = "Svelte docs";
-                          url = "https://svelte.dev/docs/introduction";
-                        }
-                        {
-                          name = "Svelte5 docs";
-                          url = "https://svelte-5-preview.vercel.app/docs/introduction";
-                        }
-                        {
-                          name = "TypeScript docs";
-                          url = "https://www.typescriptlang.org/docs/";
-                        }
+
                       ];
                     }
                     {
                       name = "Nix";
                       bookmarks = [
-                        {
-                          name = "Nix(OS) manual (stable)";
-                          url = "https://nixos.org/manual/nixos/stable/";
-                        }
-                        {
-                          name = "Nix(OS) manual (unstable)";
-                          url = "https://nixos.org/manual/nixos/unstable/";
-                        }
-                        {
-                          name = "Home manager options";
-                          url = "https://nix-community.github.io/home-manager/options.xhtml";
-                        }
-                        {
-                          name = "Noogle";
-                          url = "https://noogle.dev/";
-                        }
-                        {
-                          name = "Nixpkgs";
-                          url = "https://github.com/nixos/nixpkgs";
-                        }
-                        {
-                          name = "Resonance";
-                          url = "https://github.com/bddvlpr/resonance";
-                        }
-                        {
-                          name = "Fidelity";
-                          url = "https://github.com/bddvlpr/fidelity";
-                        }
+
                       ];
                     }
                     {
-                      name = "GitHub";
-                      url = "https://github.com/";
+
                     }
                   ];
                 }
                 {
                   name = "Radio";
                   bookmarks = [
-                    {
-                      name = "SondeHub";
-                      url = "https://v2.sondehub.org/";
-                    }
-                    {
-                      name = "SondeHub amateur";
-                      url = "https://amateur.sondehub.org/";
-                    }
-                    {
-                      name = "Meshtastic client";
-                      url = "https://client.meshtastic.org/";
-                    }
-                    {
-                      name = "Meshmap";
-                      url = "https://meshmap.net";
-                    }
+
                   ];
                 }
               ];
@@ -234,7 +165,7 @@ in {
 
     home = {
       sessionVariables.BROWSER = "firefox";
-      persistence."/persist/home/bddvlpr" = {
+      persistence."/persist/home/purps" = {
         directories = [
           ".mozilla/firefox"
         ];

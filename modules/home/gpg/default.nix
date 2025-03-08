@@ -30,7 +30,7 @@ in {
 
       publicKeys = [
         {
-          source = ./bddvlpr-2024-08-07.asc;
+          source = ./purps-2024-08-07.asc;
           trust = "ultimate";
         }
       ];

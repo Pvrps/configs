@@ -23,16 +23,16 @@ in {
       file = {
         ".config/unityhub/projectDir.json".text = ''
           {
-            "directoryPath": "/home/bddvlpr/Documents/Unity"
+            "directoryPath": "/home/purps/Documents/Unity"
           }
         '';
 
         ".config/unityhub/secondaryInstallPath.json".text = ''
-          "/home/bddvlpr/.local/share/unity3d"
+          "/home/purps/.local/share/unity3d"
         '';
       };
 
-      persistence."/persist/home/bddvlpr".directories = [
+      persistence."/persist/home/purps".directories = [
         ".config/unityhub"
         ".config/unity3d"
         ".local/share/unity3d"

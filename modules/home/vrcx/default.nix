@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   home = {
     packages = with pkgs; [vrcx];
-    persistence."/persist/home/bddvlpr".directories = [
+    persistence."/persist/home/purps".directories = [
       ".config/VRCX"
     ];
   };

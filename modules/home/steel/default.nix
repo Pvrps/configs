@@ -22,7 +22,7 @@ in {
     home.packages = [steel];
     home.sessionVariables = {
       STEEL_HOME = "${steel}/home";
-      STEEL_LSP_HOME = "/home/bddvlpr/temp-lsp";
+      STEEL_LSP_HOME = "/home/purps/temp-lsp";
     };
   };
 }

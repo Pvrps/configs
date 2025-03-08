@@ -19,7 +19,7 @@ in {
   config = mkIf cfg.enable {
     home = {
       packages = with pkgs; [freecad];
-      persistence."/persist/home/bddvlpr".directories = [
+      persistence."/persist/home/purps".directories = [
         ".local/share/FreeCAD"
         ".config/FreeCAD"
       ];

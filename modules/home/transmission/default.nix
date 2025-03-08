@@ -17,7 +17,7 @@ in {
 
   config = mkIf cfg.enable {
     home.packages = [pkgs.transmission_4-gtk];
-    home.persistence."/persist/home/bddvlpr".directories = [
+    home.persistence."/persist/home/purps".directories = [
       ".config/transmission"
     ];
   };

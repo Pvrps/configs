@@ -27,7 +27,7 @@ in {
     home-manager = {
       useGlobalPkgs = true;
 
-      users.bddvlpr = import ./users/bddvlpr.nix;
+      users.purps = import ./users/purps.nix;
       extraSpecialArgs = {
         inherit inputs inputs' outputs self' system;
       };

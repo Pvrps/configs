@@ -9,8 +9,6 @@ in {
   networking = {
     hostName = host;
     search = [
-      "bddvlpr.cloud"
-      "bddvlpr.com"
       "local"
     ];
     networkmanager = {

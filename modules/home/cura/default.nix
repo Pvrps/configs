@@ -20,7 +20,7 @@ in {
     home = {
       packages = [pkgs.nur.repos.xeals.cura5];
 
-      persistence."/persist/home/bddvlpr".directories = [
+      persistence."/persist/home/purps".directories = [
         ".config/cura"
         ".local/share/cura"
       ];

@@ -27,6 +27,6 @@ in {
       nix-direnv.enable = cfg.enableNixDirenv;
     };
 
-    home.persistence."/persist/home/bddvlpr".directories = [".local/share/direnv"];
+    home.persistence."/persist/home/purps".directories = [".local/share/direnv"];
   };
 }

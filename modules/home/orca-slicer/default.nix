@@ -14,7 +14,7 @@
         '';
       })
     ];
-    persistence."/persist/home/bddvlpr".directories = [
+    persistence."/persist/home/purps".directories = [
       ".config/OrcaSlicer"
     ];
   };

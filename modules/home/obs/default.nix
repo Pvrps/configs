@@ -23,7 +23,7 @@ in {
       plugins = with pkgs.obs-studio-plugins; [wlrobs];
     };
 
-    home.persistence."/persist/home/bddvlpr".directories = [
+    home.persistence."/persist/home/purps".directories = [
       ".config/obs-studio"
     ];
   };
