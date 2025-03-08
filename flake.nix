@@ -1,5 +1,5 @@
 {
-  description = "Luna's system configurations and modules";
+  description = "Purps's system configurations and modules";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
@@ -56,8 +56,6 @@
         ./checks/module.nix
         ./lib/module.nix
         ./modules/module.nix
-        ./overlays/module.nix
-        ./pkgs/module.nix
         ./systems/module.nix
         ./templates/module.nix
       ];

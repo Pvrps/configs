@@ -8,29 +8,24 @@
   sysc = {
     disko.luks-btrfs.device = "/dev/nvme0n1";
     monitors = [
-      #{
-      #  # Center monitor
-      #  name = "HDMI-A-1";
-      #  width = 3440;
-      #  height = 1440;
-      #  x = 1920;
-      #  refreshRate = 100;
-      #  workspace = "2";
-      #}
-      #{
-      #  # Right monitor
-      #  name = "DP-1";
-      #  width = 1920;
-      #  height = 1080;
-      #  x = 5360;
-      #  refreshRate = 75;
-      #  workspace = "3";
-      #}
-      #{
-      #  # Valve index
-      #  name = "DP-2";
-      #  enabled = false;
-      #}
+      {
+        # Center monitor
+        name = "HDMI-A-1";
+        width = 2560;
+        height = 1440;
+        x = 0;
+        refreshRate = 144;
+        workspace = "1";
+      }
+      {
+        # Right monitor
+        name = "DP-1";
+        width = 2560;
+        height = 1440;
+        x = 2560;
+        refreshRate = 144;
+        workspace = "2";
+      }
     ];
     nvidia = {
       enable = true;
@@ -42,7 +37,7 @@
     keyboard.qmk.enable = true;
   };
 
-  boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "usbhid" "sd_mod"];
+  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod"];
   boot.initrd.kernelModules = ["dm-snapshot"];
   boot.kernelModules = ["kvm-amd"];
 }

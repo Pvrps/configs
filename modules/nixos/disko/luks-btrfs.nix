@@ -30,7 +30,7 @@ in {
           type = "gpt";
           partitions = {
             ESP = {
-              size = "500M";
+              size = "550M";
               type = "EF00";
               content = {
                 type = "filesystem";
