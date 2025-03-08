@@ -1,3 +1,6 @@
+# sudo nix --extra-experimental-features "nix-command flakes" run github:nix-community/disko -- --mode zap_create_mount --flake .#dissension
+# sudo nixos-install --flake .#dissension
+
 {
   description = "Purps's system configurations and modules";
 
