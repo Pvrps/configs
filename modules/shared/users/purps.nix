@@ -8,8 +8,8 @@ in {
   users.users.purps = mkMerge [
     {
       shell = pkgs.fish;
+      isNormalUser = true;
+      extraGroups = ["wheel" "audio" "video" "dialout" "plugdev" "libvirtd" "networkmanager" "docker" "wireshark"];
     }
-    isNormalUser = true;
-    extraGroups = ["wheel" "audio" "video" "dialout" "plugdev" "libvirtd" "networkmanager" "docker" "wireshark"];
   ];
 }
