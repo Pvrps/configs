@@ -9,12 +9,15 @@ in {
   networking = {
     hostName = host;
     search = [
+      "bddvlpr.cloud"
+      "bddvlpr.com"
       "local"
     ];
     networkmanager = {
       enable = true;
       plugins = with pkgs; [
-
+        networkmanager-openconnect
+        networkmanager-openvpn
       ];
     };
   };

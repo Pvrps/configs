@@ -71,7 +71,7 @@
   };
 
   home = {
-    persistence."/persist/home/purps" = {
+    persistence."/persist/home/bddvlpr" = {
       directories = [".config/vesktop"];
     };
   };

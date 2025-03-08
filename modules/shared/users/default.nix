@@ -1,5 +1,5 @@
 {
   imports = [
-    ./purps.nix
+    ./bddvlpr.nix
   ];
 }

@@ -34,11 +34,15 @@ in {
 
     mkStrappedSystem = host: system: type: modules: let
       inherit (builtins) attrValues;
+
+      isLinux = hasSuffix "linux" system;
     in
       mkSystem host system type (
         modules
         ++ (
-          attrValues outputs.nixosModules
+          if isLinux
+          then attrValues outputs.nixosModules
+          else attrValues outputs.darwinModules
         )
         ++ attrValues outputs.sharedModules
       );

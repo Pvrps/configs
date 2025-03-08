@@ -10,7 +10,7 @@ in {
   options.sysc.general = {
     timezone = mkOption {
       type = types.str;
-      default = "Canada/Eastern";
+      default = "Europe/Brussels";
       description = "Target timezone to use.";
     };
   };

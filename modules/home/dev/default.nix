@@ -6,6 +6,8 @@
   ...
 }: let
   inherit (lib) mkIf mkOption optionals types;
+  inherit (inputs.fenix.packages.${pkgs.system}) complete;
+  inherit (pkgs.stdenv) isDarwin;
 
   cfg = config.sysc.dev;
 in {
@@ -20,7 +22,14 @@ in {
   config = mkIf cfg.enable {
     home.packages =
       [
-
+        (complete.withComponents
+          [
+            "cargo"
+            "clippy"
+            "rust-src"
+            "rustc"
+            "rustfmt"
+          ])
       ]
       ++ (with pkgs; [
         cargo-watch
@@ -33,11 +42,13 @@ in {
         unzip
         usbutils
         zip
-        gcc
       ])
       ++ (with pkgs.nodePackages; [
         yarn
         pnpm
+      ])
+      ++ optionals (!isDarwin) (with pkgs; [
+        gcc
       ]);
   };
 }

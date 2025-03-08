@@ -23,7 +23,7 @@ in {
       mangohud
     ];
 
-    persistence."/persist/home/purps" = {
+    persistence."/persist/home/bddvlpr" = {
       allowOther = true;
       directories = [
         ".factorio"

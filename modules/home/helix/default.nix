@@ -8,11 +8,19 @@
 
   cfg = config.sysc.helix;
 in {
+  imports = [./steel];
+
   options.sysc.helix = {
     enable = mkOption {
       type = types.bool;
       default = true;
       description = "Whether to enable helix.";
+    };
+
+    enableSteel = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Whether to enable Steel plugins.";
     };
   };
 
@@ -26,9 +34,29 @@ in {
 
       extraPackages = with pkgs;
         [
+          docker-compose-language-service
+          gleam
+          gdtoolkit_4
+          gopls
+          haskell-language-server
+          helm-ls
+          kotlin-language-server
+          lldb_18
+          marksman
+          netcoredbg
           nil
+          omnisharp-roslyn
+          ruff
+          rust-analyzer
+          taplo
+          terraform-ls
+          texlab
+          tinymist
+          yaml-language-server
+          zls
         ]
         ++ (with nodePackages; [
+          svelte-language-server
           typescript-language-server
           vscode-langservers-extracted
         ]);

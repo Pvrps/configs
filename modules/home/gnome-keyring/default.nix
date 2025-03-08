@@ -21,7 +21,7 @@ in {
 
     home = {
       packages = [pkgs.gcr];
-      persistence."/persist/home/purps".directories = [
+      persistence."/persist/home/bddvlpr".directories = [
         ".local/share/keyrings"
       ];
     };

@@ -3,7 +3,7 @@
 in {
   imports = [impermanence];
 
-  config.home.persistence."/persist/home/purps" = {
+  config.home.persistence."/persist/home/bddvlpr" = {
     allowOther = true;
     directories = [
       ".config/sops"

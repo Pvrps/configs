@@ -92,7 +92,7 @@ in {
             format = "<span color='${colors.base0B}'>  </span>{}%";
             format-alt = "<span color='${colors.base0B}'>  </span>{icon}";
             format-icons = ["󰋙" "󰫃" "󰫄" "󰫅" "󰫆" "󰫇" "󰫈"];
-            tooltip-format = "{used:0.1f}GiB/{total:0.1f}GiB total";
+            tooltip-format = "{used:0.1f}GiB/{total:0.1f}GiB total ({swapUsed:0.1f}GiB/{swapAvail:0.1f}GiB swap)";
           };
 
           network = {

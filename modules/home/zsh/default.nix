@@ -11,7 +11,10 @@ in {
     shellAliases = let
       inherit (lib) getExe;
 
-      build-command = "sudo nixos-rebuild --flake /etc/nixos";
+      build-command =
+        if isDarwin
+        then "darwin-rebuild --flake ~/.config/resonance"
+        else "sudo nixos-rebuild --flake /etc/nixos";
     in rec {
       nb = "nix build";
       nbn = "${nb} nixpkgs#";

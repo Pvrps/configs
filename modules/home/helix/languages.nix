@@ -7,6 +7,7 @@
   inherit (lib) getExe;
   inherit (pkgs) alejandra typstyle;
   inherit (pkgs.nodePackages) prettier;
+  inherit (inputs.nix-steel.packages.${pkgs.system}) steel-language-server;
 
   mkPrettier = {
     name,
@@ -43,6 +44,16 @@ in {
       name = "tsx";
       parser = "typescript";
     })
+    ((
+        mkPrettier {
+          name = "svelte";
+          parser = "svelte";
+          plugin = "prettier-plugin-svelte";
+        }
+      )
+      // {
+        language-servers = ["svelteserver"];
+      })
     {
       name = "nix";
       auto-format = true;
@@ -53,13 +64,29 @@ in {
       auto-format = true;
     }
     {
+      name = "scheme";
+      language-servers = ["steel-language-server"];
+    }
+    {
       name = "typst";
       auto-format = true;
       formatter.command = getExe typstyle;
     }
+    {
+      name = "gdscript";
+      language-servers = ["godot"];
+    }
   ];
 
   language-server = {
+    steel-language-server = {
+      command = getExe steel-language-server;
+      args = [];
+    };
 
+    godot = {
+      command = "${getExe pkgs.netcat}";
+      args = ["127.0.0.1" "6005"];
+    };
   };
 }

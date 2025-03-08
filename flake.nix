@@ -1,8 +1,5 @@
-# sudo nix --extra-experimental-features "nix-command flakes" run github:nix-community/disko -- --mode zap_create_mount --flake .#dissension
-# sudo nixos-install --flake .#dissension
-
 {
-  description = "Purps's system configurations and modules";
+  description = "Luna's system configurations and modules";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
@@ -16,6 +13,11 @@
 
     disko = {
       url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-darwin = {
+      url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -36,9 +38,29 @@
         home-manager.follows = "home-manager";
       };
     };
-		
+
+    fenix = {
+      url = "github:nix-community/fenix?ref=monthly";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-steel = {
+      url = "github:bddvlpr/nix-steel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    helix-steel = {
+      url = "github:mattwparas/helix?ref=steel-event-system";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixcord = {
       url = "github:kaylorben/nixcord";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    aagl = {
+      url = "github:ezkea/aagl-gtk-on-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -51,6 +73,9 @@
   outputs = {flake-parts, ...} @ inputs:
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = [
+        "aarch64-darwin"
+        "aarch64-linux"
+        "x86_64-darwin"
         "x86_64-linux"
       ];
 

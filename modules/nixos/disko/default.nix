@@ -3,6 +3,6 @@
 in {
   imports = [
     disko
-    ./btrfs.nix
+    ./luks-btrfs.nix
   ];
 }

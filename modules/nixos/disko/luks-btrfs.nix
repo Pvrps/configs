@@ -30,7 +30,7 @@ in {
           type = "gpt";
           partitions = {
             ESP = {
-              size = "550M";
+              size = "500M";
               type = "EF00";
               content = {
                 type = "filesystem";
@@ -66,6 +66,10 @@ in {
                       "/nix" = {
                         mountpoint = "/nix";
                         mountOptions = ["compress=zstd" "noatime"];
+                      };
+                      "/swap" = {
+                        mountpoint = "/swap";
+                        swap.swapfile.size = "16G";
                       };
                     }
                   ];
