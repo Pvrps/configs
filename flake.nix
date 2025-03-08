@@ -56,6 +56,8 @@
         ./checks/module.nix
         ./lib/module.nix
         ./modules/module.nix
+        ./overlays/module.nix
+        ./pkgs/module.nix
         ./systems/module.nix
         ./templates/module.nix
       ];
