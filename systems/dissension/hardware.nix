@@ -6,7 +6,7 @@
   ];
 
   sysc = {
-    disko.luks-btrfs.device = "/dev/nvme0n1";
+    disko.btrfs.device = "/dev/nvme0n1";
     monitors = [
       {
         # Center monitor

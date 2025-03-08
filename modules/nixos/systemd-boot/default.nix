@@ -6,6 +6,7 @@
   inherit (lib) mkIf mkOption types;
 
   cfg = config.sysc.systemd-boot;
+  impermanent = config.sysc.impermanence.enable;
 in {
   options.sysc.systemd-boot = {
     enable = mkOption {
@@ -26,5 +27,10 @@ in {
       enable = true;
       configurationLimit = cfg.limit;
     };
+
+    systemd.tmpfiles.rules = mkIf impermanent [
+      "d /persist/home/ 0777 root root -"
+      "d /persist/home/purps 0700 purps users -"
+    ];
   };
 }
