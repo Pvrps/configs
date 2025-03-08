@@ -33,29 +33,9 @@
         home-manager.follows = "home-manager";
       };
     };
-
-    fenix = {
-      url = "github:nix-community/fenix?ref=monthly";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nix-steel = {
-      url = "github:bddvlpr/nix-steel";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    helix-steel = {
-      url = "github:mattwparas/helix?ref=steel-event-system";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
+		
     nixcord = {
       url = "github:kaylorben/nixcord";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    aagl = {
-      url = "github:ezkea/aagl-gtk-on-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
