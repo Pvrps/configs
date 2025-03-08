@@ -13,7 +13,6 @@ in {
       import inputs.nixpkgs {
         inherit system;
         overlays = [
-          outputs.overlays.pkgs
           inputs.nur.overlays.default
         ];
         config.allowUnfree = true;
