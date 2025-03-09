@@ -26,6 +26,8 @@ in {
         cargo-watch
         file
         htop
+        btop
+        wget
         jq
         p7zip
         neofetch

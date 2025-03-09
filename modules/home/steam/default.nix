@@ -26,7 +26,6 @@ in {
     persistence."/persist/home/purps" = {
       allowOther = true;
       directories = [
-        ".factorio"
         ".local/share/Steam"
       ];
     };
