@@ -29,7 +29,12 @@ in {
         content = {
           type = "gpt";
           partitions = {
-            ESP = {
+            boot = {
+              name = "boot";
+              size = "1M";
+              type = "EF02";
+            };
+            esp = {
               size = "550M";
               type = "EF00";
               content = {
@@ -46,12 +51,11 @@ in {
                 extraArgs = ["-f"];
                 subvolumes = mkMerge [
                   {
-                    "root" = {
+                    "/root-blank" = {};
+                    "/root" = {
                       mountpoint = "/";
-                      mountOptions = ["compress-zstd" "noatime"];
+                      mountOptions = ["compress=zstd" "noatime"];
                     };
-                  }
-                  {
                     "/nix" = {
                       mountpoint = "/nix";
                       mountOptions = ["compress=zstd" "noatime"];
@@ -63,9 +67,6 @@ in {
                       mountOptions = ["compress=zstd" "noatime"];
                     };
                   })
-                  {
-                    "/root-blank" = {};
-                  }
                 ];
               };
             };
