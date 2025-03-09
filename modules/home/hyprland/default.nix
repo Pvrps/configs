@@ -124,15 +124,20 @@ in {
             "$mod, F, fullscreen,"
             "$mod, P, pseudo,"
 
-            "$mod, H, movefocus, l"
-            "$mod, J, movefocus, d"
-            "$mod, K, movefocus, u"
-            "$mod, L, movefocus, r"
+            "$mod, left, movefocus, l"
+            "$mod, down, movefocus, d"
+            "$mod, up, movefocus, u"
+            "$mod, right, movefocus, r"
 
-            "$mod SHIFT, H, resizeactive, -20 0"
-            "$mod SHIFT, J, resizeactive, 0 20"
-            "$mod SHIFT, K, resizeactive, 0 -20"
-            "$mod SHIFT, L, resizeactive, 20 0"
+            #"$mod SHIFT, left, resizeactive, -20 0"
+            #"$mod SHIFT, down, resizeactive, 0 20"
+            #"$mod SHIFT, up, resizeactive, 0 -20"
+            #"$mod SHIFT, right, resizeactive, 20 0"
+
+            #"$mod CTRL, LEFT, swapwindow, l"
+            #"$mod CTRL, DOWN, swapwindow, d"
+            #"$mod CTRL, UP, swapwindow, u"
+            #"$mod CTRL, RIGHT, swapwindow, r"
 
             "$mod, G, togglegroup"
             "$mod, Tab, changegroupactive"

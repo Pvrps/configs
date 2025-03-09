@@ -5,7 +5,7 @@
 }: {
   editor = {
     scrolloff = 8;
-    line-number = "relative";
+    line-number = "absolute";
     bufferline = "multiple";
 
     cursor-shape = {

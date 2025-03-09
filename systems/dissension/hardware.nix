@@ -19,7 +19,7 @@
       }
       {
         # Right monitor
-        name = "DP-2";
+        name = "DP-3";
         width = 2560;
         height = 1440;
         x = 2560;

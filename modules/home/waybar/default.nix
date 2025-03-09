@@ -57,7 +57,7 @@ in {
             builtins.map (m: m.name) enabledMonitors;
           modules-left = ["hyprland/workspaces" "hyprland/window"];
           modules-center = ["custom/player"];
-          modules-right = ["tray" "cpu" "memory" "backlight" "pulseaudio" "custom/tailscale" "network" "battery" "clock"];
+          modules-right = ["tray" "cpu" "memory" "backlight" "pulseaudio" "network" "battery" "clock"];
 
           "hyprland/window" = {
             format = "{}";
@@ -147,7 +147,7 @@ in {
             };
             timezones =
               [
-                "Europe/Brussels"
+                "Canada/Eastern"
               ]
               ++ (builtins.genList (x: "Etc/GMT-${toString x}") 14)
               ++ (builtins.genList (x: "Etc/GMT+${toString x}") 9);
@@ -173,16 +173,7 @@ in {
               default = ["" "" ""];
             };
           };
-
-          "custom/tailscale" = let
-            inherit (import ./tailscale-widget.nix args) exec on-click;
-          in {
-            interval = 3;
-            exec = "${getExe exec}";
-            tooltip = false;
-            on-click = "${getExe on-click}";
-          };
-
+          
           "custom/player" = let
             playerctl = getExe pkgs.playerctl;
             playerExec = pkgs.writeShellScriptBin "player-exec" ''
